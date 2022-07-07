@@ -25,6 +25,8 @@ const getBrowserRevision = async (revision) => {
 (async () => {
     const REVISION = '982053'; /** Use same revision as puppeteer 13.7.0 to discard possible difference */
     const URL = 'https://google.com';
+    const pptrVersion = getPackageVersion('puppeteer');
+
     const revisionInfo = await getBrowserRevision(REVISION);
     const { executablePath } = revisionInfo;
     const launchOptions = {
@@ -33,6 +35,7 @@ const getBrowserRevision = async (revision) => {
     };
 
     const browser = await puppeteer.launch(launchOptions);
+    const browserVersion = await browser.version();
     const allPages = await browser.pages();
     const page = (allPages.length) ? allPages[0] : await browser.newPage();
     await page.goto(URL, { waitUntil: 'load' });
@@ -46,8 +49,8 @@ const getBrowserRevision = async (revision) => {
     console.log(data.join(' '));
 
     console.log(`Node: ${version}`);
-    console.log(`Puppeteer: ${getPackageVersion('puppeteer')}`);
-    console.log(`Browser: ${await browser.version()}`);
+    console.log(`Puppeteer: ${pptrVersion}`);
+    console.log(`Browser: ${browserVersion}`);
     console.log(`Duration: ${performance.now() - startTime}`);
 
     await browser.close();

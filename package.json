@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-perf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Puppeteer ESM performance test",
   "type": "module",
   "main": "index.js",
