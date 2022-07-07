@@ -1,0 +1,19 @@
+{
+  "name": "puppeteer-perf",
+  "version": "1.0.0",
+  "description": "Puppeteer ESM performance test",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feesler/puppeteer-perf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "puppeteer": "13.7.0"
+  }
+}
