@@ -23,7 +23,7 @@ const getBrowserRevision = async (revision) => {
 };
 
 (async () => {
-    const REVISION = '982053'; /** Use same revision as puppeteer 13.7.0 to discard possible difference */
+    const REVISION = '1095492'; /** Use same revision as puppeteer 19.7.0 to discard possible difference */
     const URL = 'https://google.com';
     const pptrVersion = getPackageVersion('puppeteer');
 
