@@ -10,28 +10,12 @@ const getPackageVersion = (name) => {
     return json.version;
 };
 
-const getBrowserRevision = async (revision) => {
-    const browserFetcher = puppeteer.createBrowserFetcher();
-    const localRevs = await browserFetcher.localRevisions();
-
-    if (localRevs.includes(revision)) {
-        return browserFetcher.revisionInfo(revision);
-    }
-
-    console.log(`Downloading Chromium revision ${revision} ...`);
-    return browserFetcher.download(revision);
-};
-
 (async () => {
-    const REVISION = '1095492'; /** Use same revision as puppeteer 19.7.0 to discard possible difference */
     const URL = 'https://google.com';
     const pptrVersion = getPackageVersion('puppeteer');
 
-    const revisionInfo = await getBrowserRevision(REVISION);
-    const { executablePath } = revisionInfo;
     const launchOptions = {
-        headless: true,
-        executablePath,
+        headless: 'new',
     };
 
     const browser = await puppeteer.launch(launchOptions);
