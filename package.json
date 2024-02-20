@@ -3,9 +3,9 @@
   "version": "1.3.0",
   "description": "Puppeteer ESM performance test",
   "type": "module",
-  "main": "index.js",
+  "main": "scripts/index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node scripts/index.js"
   },
   "repository": {
     "type": "git",
