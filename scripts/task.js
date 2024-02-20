@@ -15,7 +15,7 @@ export const task = async () => {
     const pptrVersion = getPackageVersion('puppeteer');
 
     const launchOptions = {
-        headless: 'new',
+        headless: true,
     };
 
     const browser = await puppeteer.launch(launchOptions);
